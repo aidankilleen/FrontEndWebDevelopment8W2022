@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data-table {
+            width: 100%;
+            border: 1px solid black;
+        }
+        .data-table thead tr {
+            background-color: lightgreen;
+            height: 1.7em;
+        }
+        .data-table tbody tr {
+            background-color: lightblue;
+            height: 1.7em;
+        }
+        .data-table tbody tr:hover {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Object Array</h1>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+    <script>
+
+        // Core Object JS:
+
+        let d = new Date();
+
+        //let user = new User(1, "Alice", "alice@gmail.com", false);
+
+        let user = {
+            id: 1, 
+            name: "Alice", 
+            email: "alice@gmail.com", 
+            active: true, 
+            asTableRow: function() {
+                return `
+                    <tr>
+                        <td>${ user.id }</td>
+                        <td>${ user.name }</td>
+                        <td>${ user.email }</td>
+                        <td>${ user.active ? 'Active' : 'Inactive'}</td>
+                    </tr>
+                `;
+            }
+        };
+
+        //user.display();
+
+        let tblBody = document.getElementById("table-body");
+
+        //tblBody.innerHTML = user.asTableRow();
+
+        let users = [
+            { "id": 1, "name":"Alice", "email": "alice@gmail.com", "active": true }, 
+            { "id": 2, "name":"Bob", "email": "bob@gmail.com", "active": false }, 
+            { "id": 3, "name":"Carol", "email": "carol@gmail.com", "active": true }, 
+            { "id": 4, "name":"Dan", "email": "dan@gmail.com", "active": false }, 
+        ];
+
+        for (var i=0; i<users.length; i++) {
+
+            tblBody.innerHTML += `<tr>
+                    <td>${ users[i].id }</td>
+                    <td>${ users[i].name }</td>
+                    <td>${ users[i].email }</td>
+                    <td>${ users[i].active ? 'Active' : 'Inactive' }</td>
+                </tr>`;
+        }
+
+
+        // add event handler for trs in a tbody
+
+        let tableRows = document.querySelectorAll(".data-table tbody tr");
+
+        for (var i=0; i<tableRows.length; i++) {
+            tableRows[i].onclick = function() {
+                alert("you clicked a row");
+            }
+        }
+
+
+
+        console.log(tableRows);
+
+    </script>
+</body>
+</html>

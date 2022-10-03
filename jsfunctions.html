@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="txtName">
+    <button onclick="greeting()">Say hello</button>
+
+
+    <button id="btnTest">Test</button>
+
+    <script>
+
+        document.write("<h1>JS Functions</h1>");
+
+        function greeting() {
+
+            var nameTextBox = document.getElementById("txtName");
+
+            alert("hello " + nameTextBox.value);
+        }
+
+
+        var btn = document.getElementById("btnTest");
+
+        var dt = new Date();
+
+        var s = "Aidan";
+
+        
+        
+
+        
+        btn.onclick = function() {
+            alert("you clicked the button");
+        }
+
+        /*
+        setTimeout(function() {  
+            alert("5 seconds has passed");
+        }, 5000);
+
+        setInterval(function() {
+
+            document.write("<h3>" + new Date() + "</h3>");
+        }, 2000);
+        */
+
+        // ES6 introduced arrow functions 
+
+
+
+
+
+
+        //greeting();
+
+
+    </script>
+</body>
+</html>

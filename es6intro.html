@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="title"></h1>
+
+    <div id="result"></div>
+
+    
+    <script>
+
+        document.getElementById("title").innerHTML = "ES6 Test";
+
+        setInterval(function() {
+            let contents = document.getElementById("result").innerHTML;
+            
+            contents += "<BR>" + new Date();
+
+            document.getElementById("result").innerHTML = contents;
+
+        }, 1000);
+
+
+
+
+
+        let name = "Aidan";
+
+        let greeting = "Welcome " + name;
+
+        // templated string
+
+        greeting = `Welcome ${ name }`;  
+ 
+        document.write(greeting);
+
+        let r = Math.random();
+
+        let message;
+        
+        if (r < 0.5) {
+            message = `the value is ${ r } it is small`;
+        } else {
+            message = `the value is ${ r } it is large`;
+        }
+
+        document.write(message);
+
+        message = `the value is ${ r } it is ${ r < 0.5 ? 'small' : 'large'}`;
+
+        document.write(message);
+
+        let a = 10;
+        let b = 20;
+
+        message = `${ a } + ${ b } = ${ a + b }<br>`;
+
+        document.write(message);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

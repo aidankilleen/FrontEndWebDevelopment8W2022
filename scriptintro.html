@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #testdiv {
+            width:100px;
+            height:100px;
+            border: 1px solid black;
+        }
+
+        #testdiv:hover {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1>Script Intro</h1>
+    <!--
+        inline event handlers are not really used
+    <div id="testdiv" onclick="alert('clicked')">press me</div>
+    -->
+
+    <div id="testdiv">Press me</div>
+
+    <script>
+        // building block #1 - comments
+        /* this is a comment */ 
+        // alert("hello");
+
+
+        // building block #2 - variables
+        // JavaScript is loosely typed (untyped)
+
+        var s = "some string";
+
+        s = 100;
+        document.write("<h2>The answer is " + s + "</h2>");
+        
+        
+        //alert ("The value is " + s);
+        
+        // ES6 - replaced the var keyword with let & const - 
+        // we'll come back to these 
+        
+        
+        // building block #3 - expressions
+        
+        var a = 10;
+        var b = 20;
+        var answer = a + b;
+        
+        document.write("<h2>The answer is " + answer + "</h2>");
+        
+        
+        // building block #4 - array
+
+        var list = [1, 10, 8, 5, 7, 3, 9, 2];
+
+        // index in an array is zero based
+        document.write(list[1]);
+
+
+        list = [1, "one", 1.1, new Date("1/1/2001")];
+
+
+        // building block #5 - loops
+
+        document.write("<ul>");
+        for (var i=0; i<list.length; i++) {
+            document.write("<li>" + list[i] + "</li>");
+        }
+        document.write("</ul>");
+            
+        index = 0;
+
+        while (index < list.length) {
+            document.write(list[index] + "<BR>");
+            //index = index +1;
+            index++;
+        }
+
+        // building block #6 - conditional
+
+        var r = Math.random();
+        if (r < 0.3) {
+
+            document.write("<h4>" + r + "</h4>");
+        } else if (r < 0.7) {
+            document.write("<h2>" + r + "</h2>");
+        } else {
+            document.write("<h1>" + r + "</h1>");
+
+        }
+
+
+        // building block #7 - function - 
+
+
+        // building block #8 - objects -
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var div = document.getElementById("testdiv");
+
+        div.onclick = function() {
+            alert('clicked');
+        }
+
+
+    </script>
+
+</body>
+</html>

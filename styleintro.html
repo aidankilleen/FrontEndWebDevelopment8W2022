@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS Syntax */
+
+        h1 {
+            color: red;
+            text-decoration: underline;
+            background-color: black;
+        }
+
+        p {
+            color: blue;
+            font-size: 1.5em;
+        }
+
+        div {
+            width: 300px;
+            height: 200px;
+            /*
+            border-width: 1px;
+            border-color: black;
+            border-style: solid;
+            */
+            /*border: 1px solid black; */
+            font: 0.5em Tahoma;
+        }
+
+        div h1 {
+            color: blue;
+            background-color: yellow;
+        }
+
+        #box1 {
+        }
+        #box2 {
+        }
+
+        .box {
+            font-size: 0.5em;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .box h1 {
+            background-color:orange;
+        }
+
+        .red {
+            background-color: lightcoral;
+        }
+
+        .blue {
+            background-color: lightblue;
+        }
+
+        .rectangle {
+            width: 200px;
+            height: 100px;
+            font-size: 1em;
+            border: 1px solid black;
+        }
+
+        .rectangle:hover {
+            background-color: lightcoral;
+        }
+        
+        .biglist {
+            font-size: 2em;
+        }
+
+        .biglist li:nth-child(3) {
+            background-color: lightblue;
+        }
+        .biglist li:hover {
+            background-color: lightgreen;
+        }
+
+        #terms input[type=checkbox]:checked + p {
+            background-color: lightgreen;
+        } 
+    </style>
+</head>
+<body>
+    <h1>Style Intro</h1>
+
+    <div id="terms">
+        <input type="checkbox">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos neque dolores sed omnis explicabo veritatis error deserunt, repudiandae iste nulla odio tenetur eum eveniet facere aut eaque doloribus reprehenderit amet.</p>
+    </div>
+
+
+
+    <ul class="biglist">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+
+
+    <div class="rectangle">
+        Rectangle 1
+    </div>
+
+
+
+
+
+
+
+
+
+    <div>
+        <h1>Regular Div</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, sapiente cupiditate, nemo ex in cumque amet ad aliquam facere ullam, accusamus rerum quam? Quam distinctio id alias voluptatum, adipisci nihil?</p>
+    </div>
+    <div id="box1" class="red box">
+        <h1>Box 1</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore repellat molestiae veritatis. Nihil excepturi vero eius consequatur mollitia eligendi distinctio, minus blanditiis est accusantium velit iure eum ipsam voluptatum doloribus.</p>
+    </div>
+
+    <div id="box2" class="blue box">
+        <h1>Box 2</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, nam soluta! Ab, incidunt. Quo provident rem ipsum voluptatem accusamus fugit accusantium tempora similique ratione, laboriosam iusto ipsa, illo maiores optio!</p>
+    </div>
+
+
+
+    <!-- we don't use inline styling except in rare circumstances
+    <p style="color:green">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sed, saepe nostrum, dolor vitae porro iste molestiae debitis, qui quisquam commodi illo quaerat facere libero doloremque necessitatibus est consequatur aliquam.</p>
+    -->
+
+    <p>Beatae neque minus <span style="color:red">molestiae</span> id animi cum fuga, laudantium rem quasi accusamus quas alias laboriosam perspiciatis omnis officia veritatis distinctio dolores, eum deleniti molestias mollitia. Atque dignissimos quia quo numquam.</p>
+    <p>Incidunt ducimus, ipsam corporis tenetur dignissimos eveniet quasi quos recusandae quia? Veniam quae explicabo voluptas porro ipsam suscipit quos. Corporis officiis autem esse assumenda veritatis harum nisi possimus modi voluptatibus.</p>
+    <p>Delectus accusamus neque repellat veritatis soluta tenetur quod animi, aut odio beatae officiis voluptates optio eos, necessitatibus voluptatibus culpa perferendis laborum modi dolorum, eveniet reprehenderit officia quia dolor dolores. Quam!</p>
+    <p>Corporis, veritatis labore. Voluptate blanditiis dicta animi amet consequuntur neque ab perspiciatis fugiat consectetur provident necessitatibus, assumenda ad temporibus similique dolore commodi! Libero itaque autem, voluptate ipsam in minus deserunt?</p>
+
+
+
+</body>
+</html>

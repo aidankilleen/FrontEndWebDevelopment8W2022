@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="title"></h1>
+
+    <button id="btnAdd">+</button>
+    <div id="output">
+        <p>some output</p>
+    </div>
+
+    <button id="get-data">Get Data</button>
+
+    <table id="tbl-users">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" 
+        integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+    <script>
+        // Event handling
+        // event is triggered when the page is ready to display
+        $(document).ready(function(){
+            // JQuery is good at DOM manipulation
+            $("#title").html("jQuery Test");
+            $("#output").append("<h2>Info</h2>");
+
+            $("#btnAdd").on("click", function() {
+                $("#output").append(`<p>${new Date()}</p>`);
+            });
+
+            $("#get-data").on("click", function() {
+                $.getJSON("http://localhost:3000/users", function(users) {
+
+                    for (let i=0; i<users.length; i++) {
+                        $("#tbl-users tbody").append(`
+                            <tr>
+                                <td>${ users[i].id }</td>
+                                <td>${ users[i].name }</td>
+                                <td>${ users[i].email }</td>
+                                <td>${ users[i].active ? "Active" : "Inactive" }</td>
+                            </tr>`);
+                    }
+                });
+            });
+
+
+
+        });
+    </script>
+</body>
+</html>

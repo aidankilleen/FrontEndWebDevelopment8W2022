@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Grid</h1>
+
+    <table id="tbl-users">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>Controls</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        let url = "http://localhost:3000/users";
+
+        function addUserToTable(user) {
+            $("#tbl-users tbody").append(`<tr id="tr_${ user.id }">
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${user.active}</td>
+                            <td><button class="btnDelete" id="btnDelete_${user.id}">Delete</button></td>
+                        </tr>`);
+            //$(`#btnDelete_${user.id}`).on("click", function() {
+            //    alert("delete clicked");
+            //});                        
+        }
+
+        $(document).ready(function() {
+            console.log("ready() called");
+            $.getJSON(url, function(users) {
+                console.log("getJSON() returned");
+                for(let i=0; i<users.length; i++) {
+                    addUserToTable(users[i]);
+                }
+            });
+
+            console.log("setting event handler");
+            $(document).on("click", ".btnDelete", function(event) {
+
+                let pieces = event.currentTarget.id.split("_");
+                let id = pieces[1];
+                if (confirm (`Delete user ${id}?`)) {
+                    // make an ajax call to delete this user...
+                    $.ajax({
+                        url: `${url}/${id}`, 
+                        method: "DELETE", 
+                        success: function() {
+                            // remove this user from the table
+                            $(`#tr_${id}`).remove();
+                        }, 
+                        error: function(error) {
+                            alert(error);
+                        }
+                    });
+                }
+            });
+
+
+            console.log("finished");
+        });
+    </script>
+</body>
+</html>

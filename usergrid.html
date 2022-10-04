@@ -104,25 +104,38 @@
 
                 let name = $(`#tr_${id} td:nth-child(2)`).html();
                 $(`#tr_${id} td:nth-child(2)`)
-                    .html(`<input id="txtName_${id}" value="${name}">`);
+                    .html(`<input 
+                            id="txtName_${id}" 
+                            value="${name}" 
+                            data-original-value="${name}">`);
 
                 let email = $(`#tr_${id} td:nth-child(3)`).html();
                 $(`#tr_${id} td:nth-child(3)`)
-                    .html(`<input id="txtEmail_${id}" value="${email}">`);
+                    .html(`<input 
+                            id="txtEmail_${id}" 
+                            value="${email}"
+                            data-original-value="${email}">`);
 
                 let active = $(`#tr_${id} td:nth-child(4)`).html() == "true";
                 $(`#tr_${id} td:nth-child(4)`)
                     .html(`<input 
                             type="checkbox" 
                             id="chkActive_${id}" 
-                            ${active ? "checked" : ""}>`);
-
+                            ${active ? "checked" : ""}
+                            data-original-value="${active ? "true" : "false"}">`);
             });
 
             $(document).on("click", ".btnCancel", function(event) {
 
                 let id = getIdFromEvent(event);
-                alert(`cancel ${id}`);
+
+                let originalName = $(`#txtName_${id}`).attr("data-original-value");
+                let originalEmail = $(`#txtEmail_${id}`).attr("data-original-value");
+                let originalActive = $(`#chkActive_${id}`).attr("data-original-value");
+                // restore values and remove edit controls
+                $(`#tr_${id} td:nth-child(2)`).html(originalName);
+                $(`#tr_${id} td:nth-child(3)`).html(originalEmail);
+                $(`#tr_${id} td:nth-child(4)`).html(originalActive);
             });
 
             $(document).on("click", ".btnSave", function(event) {

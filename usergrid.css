@@ -1,0 +1,14 @@
+#dlg-user  {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1em;
+    /*visibility: hidden;*/
+    display: none;
+}
+#dlg-user h2 {
+    text-align: center;
+
+}
+#dlg-user button {
+    text-align: center;
+}

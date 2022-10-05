@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        console.log("ES6 List processing");
+
+        let days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+        // traditional for loop
+        for (let i=0; i<days.length; i++) {
+            console.log(days[i]);
+        }
+
+        // for each loop (predate ES6)
+        console.log("foreach loop:")
+        for(let day of days) {
+            console.log(day);
+        }
+
+        // preferred ES6 way:
+        console.log("forEach() with callback");
+        days.forEach((day) => {
+            console.log(day);
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

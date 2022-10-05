@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("ES6 Functions");
+
+        function doSomething(info) {
+            console.log(`The info is: ${info}`);
+        }
+
+        doSomething("some information");
+        /*
+        setTimeout(doSomething, 2);
+        setTimeout(function() {
+            console.log("timeout elapsed");
+        }, 1000);
+*/
+
+        const f = function() {
+            console.log("the function was called");
+        }
+
+        f();
+
+        // (fat) arrow functions
+
+
+        const f2 = () => {
+            console.log("f2 was called");
+        }
+
+
+        f2();
+
+
+/*
+        setTimeout(() => {
+
+            console.log("the timeout elapsed");
+
+        }, 3);
+*/
+
+        // what is the difference between a regular function
+        // declared using the function keyword
+        // and an arrow function???
+
+
+        console.log("--------------------------");
+        let o = {
+            message: "This is a message", 
+
+            display: function() {
+                console.log(`Message:${ this.message }`);
+            }, 
+
+            displayLaterBroken: function() {
+                setTimeout(function() {
+                    console.log(`Message: ${ this.message }`);
+                }, 1000);
+            }, 
+            // obsolete solution
+            // store the value of this before you declare the 
+            // callback
+            displayLaterFixed: function() {
+                let _this = this;
+                setTimeout(function() {
+                    console.log(`Message: ${ _this.message }`);
+                }, 1000);
+            }, 
+            // correct solution
+            // arrow functions don't alter the meaning of this
+            displayLater: function() {
+
+                setTimeout(() => {
+                    console.log(`Message: ${ this.message }`);
+                }, 1000);
+            }
+        }
+
+        o.display();
+        o.displayLater();
+        o.displayLaterBroken();
+
+        console.log("finished");
+
+
+
+
+    </script>
+</body>
+</html>

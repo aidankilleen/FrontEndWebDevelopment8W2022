@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        console.log("ES6 Investigation");
+
+        let name = "Aidan";
+
+        let message = `Hi ${ name }`;
+        const pi = 3.14;
+        console.log(pi);
+
+        // pi = 4;
+        console.log(pi);
+
+        // "hoisting"
+        console.log(a); // bizarre that you can reference a variable before it is declared
+        //console.log(b);
+        if (true) {
+
+            var a = 100; // never use var - 
+            let b = 200;
+
+            console.log(a);
+            console.log(b);
+
+        }
+        console.log(a);
+        //console.log(b);
+
+
+        // destructuring
+
+        let user = {
+            id: 1, 
+            name: "Alice", 
+            email: "alice@gmail.com", 
+            active: true
+        };
+
+        let { name:n, email:e, active } = user;
+
+        console.log(n);
+        console.log(e);
+        console.log(active);
+
+
+        // spread operator
+
+        let u = {
+            id:1, 
+            name: "Bob", 
+            email: "bob@gmail.com", 
+            active: false
+        }
+
+        let { name:nm, ...rest } = u;
+
+        console.log(nm);
+        console.log(rest);
+
+
+        // destructuring works for arrays too!
+        let list = [1, 2, 3, 4, 5];
+
+        let [aa, bb, ...cc] = list;
+
+        console.log(aa);
+        console.log(bb);
+        console.log(cc);
+
+        // use destructuring to swap two variables
+
+        let dd = 10;
+        let ee = 20;
+
+        console.log(dd);
+        console.log(ee);
+
+        [ee, dd] = [dd, ee];
+
+        console.log(dd);
+        console.log(ee);
+
+
+        class User {
+            constructor(id, name, email, active) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+                this.active = active;
+            }
+            display() {
+                console.log("User:");
+                console.log(`${this.name} - ${this.email}`);
+                console.log(`Active: ${this.active}`);
+            }
+        }
+
+        let us = new User(1, "Alice", "alice@gmail.com", true);
+
+        console.log(us);
+
+        us.display();
+
+        let users = [
+            new User (1, "Alice", "alice@gmail.com", true), 
+            new User (2, "Bob", "bob@gmail.com", false), 
+            new User (3, "Carol", "carol@gmail.com", true), 
+            new User (4, "Dan", "dan@gmail.com", true), 
+            new User (5, "Eve", "eve@gmail.com", false), 
+        ];
+
+        let team = [
+            { id:1, name:"Alice", email:"alice@gmail.com", active:false }, 
+            { id:2, name:"Bob", email:"bob@gmail.com", active:false }, 
+        ];
+
+        console.log(users);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        console.log("finished");
+    </script>
+</body>
+</html>

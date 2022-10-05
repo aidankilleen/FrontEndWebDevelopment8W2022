@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            flex: 20vh 1 1;
+            background-color: lightsalmon;
+        }
+        .main-section {
+            width: 100%;
+            flex: 70vh 1 1;
+
+            display: flex;
+            flex-direction: row;
+        }
+        .left {
+            flex: 20% 1 1;
+            background-color: lightblue;
+        }
+        .main {
+            flex: 70% 1 1;
+            background-color:lightgreen;
+        }
+        .right {
+            flex: 10% 1 1;
+            background-color: lightblue;
+        }
+        .footer {
+            flex: 10vh 1 1;
+            background-color: lightsalmon;
+        }
+
+        @media (max-width:768px) {
+
+            .main-section {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body class="body">
+    
+    <div class="header">Header</div>
+    <div class="main-section">
+        <div class="left">Left</div>
+        <div class="main">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore praesentium ea repudiandae, incidunt non nam accusamus aperiam quidem. Soluta aliquid consectetur, at id rerum aspernatur ut hic inventore eius sunt!</p>
+            <p>Facilis veniam sapiente eius commodi, est explicabo consequuntur quis, reiciendis molestias laborum quisquam officiis nihil ipsam optio asperiores! Minima eveniet illo numquam ipsa beatae iure corporis consequuntur sunt molestias impedit.</p>
+            <p>Sunt, et laborum. Repellat fugiat quisquam enim perspiciatis doloremque aliquam ipsum earum fuga, accusantium deserunt, nesciunt reiciendis inventore veritatis necessitatibus excepturi quis ex. Debitis quod quaerat, similique natus deserunt atque.</p>
+            <p>Veniam eligendi quibusdam voluptate corrupti porro et repellendus magni pariatur, quidem recusandae enim ipsa voluptatibus quo laboriosam excepturi! Ipsam, aliquam dolore culpa fugiat sed omnis at? Veniam repellat odio quos.</p>
+            <p>Necessitatibus quis voluptatibus ipsa quos maxime iure consequuntur veniam doloribus deserunt, voluptas aspernatur voluptatem porro nam non iusto quisquam ad? Laborum eveniet vel ad nesciunt a numquam neque, dolorem sint!</p>
+            <p>Temporibus impedit natus eius, maiores praesentium et illum eligendi vero ad modi dolorum, rem tempore earum mollitia nam quam facere ratione maxime eos. Libero minima corporis atque perferendis earum pariatur!</p>
+            <p>Est soluta voluptatem possimus minima animi tempore culpa, cum minus totam eaque consectetur natus ratione debitis aspernatur aperiam aliquid repellendus sit alias rem eligendi at iste! Natus voluptatem incidunt accusamus.</p>
+
+        </div>
+        <div class="right">Right</div>
+    </div>
+    <div class="footer">Footer</div>
+</body>
+</html>

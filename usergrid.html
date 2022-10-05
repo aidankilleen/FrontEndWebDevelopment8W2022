@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="usergrid.css"/>
 </head>
 <body>
+    
+    <main>
     <h1>User Grid</h1>
     <button id="btnShowDialog">Add User</button>
     <table id="tbl-users">
@@ -23,15 +25,20 @@
         <tbody>
         </tbody>
     </table>
+</main>
+
+    <div id="modal-overlay">
+        
+        <div id="dlg-user">
+            <h2>Add User</h2>
+            <label>Name</label><input id="txtName"><br>
+            <label>Email</label><input id="txtEmail"><br>
+            <label>Active</label><input type="checkbox" id="chkActive"><br>
+            <button id="btnAdd">Add</button>
+            <button id="btnCancelDialog">Cancel</button>
+        </div>
+    <div>
     <hr>
-    <div id="dlg-user">
-        <h2>Add User</h2>
-        <label>Name</label><input id="txtName"><br>
-        <label>Email</label><input id="txtEmail"><br>
-        <label>Active</label><input type="checkbox" id="chkActive"><br>
-        <button id="btnAdd">Add</button>
-        <button id="btnCancelDialog">Cancel</button>
-    </div>
 
     <hr>
 

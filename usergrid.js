@@ -176,10 +176,13 @@ $(document).ready(function() {
         $('#txtEmail').val("");
         $('#chkActive').prop("checked", false);
 
+        $('#modal-overlay').css("display", "flex");
         $('#dlg-user').css("display", "block");
     });
 
     $("#btnCancelDialog").on("click", function() {
+        $('#modal-overlay').css("display", "none");
+
         $('#dlg-user').css("display", "none");
     })
     console.log("finished");

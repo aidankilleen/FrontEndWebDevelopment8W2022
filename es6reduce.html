@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Reduce</h1>
+
+    <script>
+
+        let list = [1, 2, 3, 5, 4, 6, 9, 10];
+
+
+        let answer = list.reduce((runningTotal, current, index, arr) => {
+
+            // console.log(`${index} runningTotal:${runningTotal} current:${current}`);
+
+            return runningTotal + current;
+        }, 0);
+
+        console.log(answer);
+
+        // improve:
+        answer = list.reduce((runningTotal, current) => runningTotal + current, 0);
+
+        console.log(answer);
+
+
+        // use reduce to get a distinct list - no duplicates 
+        let names = ["Alice", "Bob", "Eve", "Carol", "Alice", "Carol", "Dan", "Bob"];
+
+        let uniqueNames = names.reduce((uniqueList, name) => {
+
+            if (uniqueList.indexOf(name) == -1) {
+                uniqueList.push(name);
+            }
+            return uniqueList;
+
+        }, []).sort();
+
+        console.log(uniqueNames);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

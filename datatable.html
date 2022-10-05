@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table id="tblResults">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        let records = [
+            {id:1, name:"Alice", colour:"red", quantity: 10}, 
+            {id:2, name:"Bob", colour:"green", quantity: 25}, 
+            {id:3, name:"Carol", colour:"blue", quantity: 19}, 
+            {id:4, name:"Dan", colour:"red", quantity: 28}, 
+            {id:5, name:"Alice", colour:"green", quantity: 17}, 
+            {id:6, name:"Carol", colour:"green", quantity: 2}, 
+            {id:7, name:"Carol", colour:"green", quantity: 12}, 
+            {id:8, name:"Carol", colour:"red", quantity: 22}, 
+            {id:9, name:"Dan", colour:"red", quantity: 23}, 
+            {id:10, name:"Carol", colour:"red", quantity: 32}, 
+            {id:11, name:"Alice", colour:"red", quantity: 10}, 
+            {id:12, name:"Bob", colour:"green", quantity: 25}, 
+            {id:13, name:"Carol", colour:"blue", quantity: 19}, 
+            {id:14, name:"Dan", colour:"red", quantity: 28}, 
+            {id:15, name:"Alice", colour:"green", quantity: 17}, 
+            {id:16, name:"Carol", colour:"green", quantity: 2}, 
+            {id:17, name:"Eve", colour:"green", quantity: 1}, 
+            {id:18, name:"Fred", colour:"red", quantity: 22}, 
+            {id:19, name:"Fred", colour:"red", quantity: 23}, 
+            {id:20, name:"Fred", colour:"red", quantity: 99} 
+        ];
+    </script>
+
+    <script>
+
+        let result = records.reduce((runningTotal, record) => {
+
+            // add quantity to total for this user 
+            runningTotal[record.name] += record.quantity;
+            return runningTotal;
+
+        }, {
+            Alice:0, 
+            Bob: 0, 
+            Carol: 0, 
+            Dan: 0, 
+            Eve: 0
+        });
+
+        console.log(result);
+
+        // improvement:
+        // start with an empty object:
+
+        result = records.reduce((runningTotal, record) => {
+
+            if (runningTotal[record.name] == null) {
+                // this is the first record for this person
+                runningTotal[record.name] = record.quantity;
+            } else {
+                // there is already a record for this person
+                runningTotal[record.name] += record.quantity;
+            }
+            return runningTotal;
+        }, {});
+
+        let trs = Object.keys(result).map(key => {
+           return `<tr><td>${key}</td><td>${result[key]}</td></tr>`;
+        });
+
+        $('#tblResults tbody').append(trs);
+
+
+
+        // in js you can access the properties of an object
+        // using dots (.)
+        // or ["propertyname"]
+
+        //obj.name = "fred";
+
+        //obj["name"];
+
+
+
+/*
+        let names = records.reduce((uniqueNameList, record) => {
+            if (uniqueNameList.indexOf(record.name) == -1) {
+                uniqueNameList.push(record.name);
+            }
+            return uniqueNameList;
+        }, []);
+
+        let trs = names.map(name=>`<tr><td>${name}</td><td></td></tr>`);
+
+        $('#tblResults tbody').append(trs);
+
+
+
+        console.log(names);
+*/
+
+    </script>
+
+</body>
+</html>

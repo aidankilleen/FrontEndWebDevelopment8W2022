@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <ul id="day-list">
+    </ul>
     
     <script>
 
@@ -27,9 +30,140 @@
 
         // preferred ES6 way:
         console.log("forEach() with callback");
+
+        let ul = document.getElementById("day-list");
+
         days.forEach((day) => {
             console.log(day);
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(day));
+            ul.append(li);
         });
+
+        // other list operations
+
+        // filter
+
+        let list = [12, 13, 2, 1, 6, 7, 16, 19, 4, 17, 6, 4, 3, 18, 20, 24, 34, 30, 29, 27, 15];
+
+
+        let filteredList = list.filter((item)=>{
+            if (item % 2 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        console.log(list);
+        console.log(filteredList);
+
+        // improvements 
+        // #1 - just return the condition
+        // #2 - if the arrow fn has a single parameter leave out the () brackets
+        // #3 - if the arrow fn is a single line then remove {} and return
+
+        filteredList = list.filter(item => item % 2 == 0);
+
+        console.log(list);
+        console.log(filteredList);
+
+
+        // sort
+
+        let sortedList = filteredList.sort((a, b) => {
+
+            if (a < b) {
+                return -1;
+            } else if (a == b) {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
+
+        console.log(sortedList);
+
+        // improvements:
+        // #1 - improve the logic
+        // #2 - only a single line so remove {} and return
+        // #3 - put back in the {} to add a trace message or to debug
+
+        sortedList = filteredList.sort((a, b) => {
+         
+            console.log(`comparing ${a} with ${b}`);
+            return a-b;
+        });
+
+        console.log(sortedList);
+
+
+        // you can chain these together
+
+        let result = list.filter(item => item % 2 ==1)
+                         .sort((a, b) => b - a)
+                         .forEach(item=>console.log(item));
+
+        //console.log(result);
+
+
+        // this works for objects too!
+
+        let team = [
+            { id:99, name:"Zoltar", email: "abbbbcccc@gmail.com", active: false }, 
+            { id:89, name:"Alice", email: "abbbbc@gmail.com", active: true }, 
+            { id:109, name:"Yvonne", email: "adddbc@gmail.com", active: true }, 
+            { id:67, name:"Carol", email: "adbddbc@gmail.com", active: false }, 
+            { id:22, name:"Bob", email: "abcddddd@gmail.com", active: true }, 
+            { id:88, name:"Wendy", email: "abbbbb@gmail.com", active: false }, 
+            { id:15, name:"Betty", email: "abbb@gmail.com", active: false }, 
+        ];
+
+
+        let activeUsers = team.filter(user => user.active)
+                              .sort((u1, u2) => u1.id - u2.id)
+                              .forEach(user=>console.log(`${user.id}: ${user.name}`));
+        
+        console.log("--------------------------");
+
+        team.filter(user => !user.active)
+            .sort((u1, u2) => u1.name.localeCompare(u2.name))
+            .forEach(user=>console.log(`${user.id}: ${user.name}`))
+
+
+        // map
+
+        let activeNames = team.filter(user=>user.active)
+                        .map(user => user.name);
+
+        console.log(activeNames);
+
+        let teamToPresent = team.map(user=>{
+
+            return {
+                active: user.active ? "Active" : "Inactive",
+                name: user.name, 
+                email: user.email, 
+                id: user.id
+            }
+        });
+
+        console.log(teamToPresent);
+
+
+        let trs = team.map(user=>`<tr><td>${user.id}</td><td>${user.name}</td></tr>`);
+
+
+        console.log(trs);
+
+
+
+
+
+
+
+
+
 
 
 

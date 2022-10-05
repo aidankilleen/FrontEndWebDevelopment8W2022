@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tblUsers">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Active</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        let team = [
+            { id:99, name:"Zoltar", email: "abbbbcccc@gmail.com", active: false }, 
+            { id:89, name:"Alice", email: "abbbbc@gmail.com", active: true }, 
+            { id:109, name:"Yvonne", email: "adddbc@gmail.com", active: true }, 
+            { id:67, name:"Carol", email: "adbddbc@gmail.com", active: false }, 
+            { id:22, name:"Bob", email: "abcddddd@gmail.com", active: true }, 
+            { id:88, name:"Wendy", email: "abbbbb@gmail.com", active: false }, 
+            { id:15, name:"Betty", email: "abbb@gmail.com", active: false }, 
+        ];
+
+        let trs = team.filter(user=>user.active)
+                      .map(user=>`<tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.active}</td>
+            </tr>`);
+
+        $("#tblUsers tbody").append(trs);
+    </script>
+</body>
+</html>

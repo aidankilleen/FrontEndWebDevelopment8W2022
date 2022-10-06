@@ -55,6 +55,7 @@ $(document).ready(function() {
             method: "POST", 
             contentType: "application/json", 
             data: JSON.stringify(user), 
+            /*
             success: function(addedUser) {
                 addUserToTable(addedUser);
 
@@ -63,6 +64,14 @@ $(document).ready(function() {
             error: function(error) {
                 alert(error);
             }
+            */
+        }).then((addedUser) => {
+            addUserToTable(addedUser);
+
+            $('#dlg-user').css("display", "none");
+        })
+        .catch((error) => {
+            alert(error);
         });
 
 

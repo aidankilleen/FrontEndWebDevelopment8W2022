@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">User Grid</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Users
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Add User</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <table id="tblUsers" class="table">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Active</th>
+            <th>&nbsp;</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+
+      <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script>
+        let users = [
+            {
+                "id": 2,
+                "name": "Bob",
+                "email": "bob@gmail.com",
+                "active": true
+            },
+            {
+                "id": 3,
+                "name": "Carol",
+                "email": "carol@gmail.com",
+                "active": false
+            },
+            {
+                "id": 4,
+                "name": "Dan",
+                "email": "dan@gmail.com",
+                "active": false
+            },
+            {
+                "id": 5,
+                "name": "Eve",
+                "email": "eve@gmail.com",
+                "active": false
+            },
+            {
+                "id": 6,
+                "name": "User",
+                "email": "user@gmail.com",
+                "active": false
+            },
+            {
+                "name": "Alice",
+                "email": "alice@gmail.com",
+                "active": true,
+                "id": 7
+            },
+            {
+                "name": "Aidan",
+                "email": "aidan@gmail.com",
+                "active": true,
+                "id": 8
+            },
+            {
+                "name": "Alan",
+                "email": "alan@gmail.com",
+                "active": true,
+                "id": 9
+            },
+            {
+                "name": "Adrian",
+                "email": "adrian@gmail.com",
+                "active": true,
+                "id": 11
+            },
+            {
+                "name": "Barbara",
+                "email": "barbara@gmail.com",
+                "active": true,
+                "id": 12
+            }
+    ];
+
+
+    </script>
+
+    <script>
+
+        let tbl = document.getElementById("tblUsers");
+        
+        let tbody = tbl.getElementsByTagName("tbody")[0];
+
+        let newRow = tbody.insertRow();
+
+        let newCell = newRow.insertCell();
+
+        let newText = document.createTextNode('new cell');
+
+        newCell.appendChild(newText);
+
+        let trs = users.map(user => {
+            return `<tr><td>${user.name}</td></tr>`
+        });
+
+        console.log(trs);
+
+    </script>
+
+
+</body>
+</html>

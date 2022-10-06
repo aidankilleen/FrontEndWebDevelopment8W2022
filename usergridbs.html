@@ -8,6 +8,7 @@
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
@@ -15,7 +16,7 @@
     
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">User Grid</a>
+          <a class="navbar-brand" href="#"><i class="fa fa-users fa-2x"></i></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,7 +33,7 @@
                   Users
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Add User</a></li>
+                  <li><a class="dropdown-item" onclick="showUserDialog()">Add User</a></li>
                 </ul>
               </li>
             </ul>
@@ -54,95 +55,123 @@
       </table>
 
 
+      <!-- Modal -->
+      <div class="modal fade" id="dlgUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">New User</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label class="form-label">Name</label>
+              <input class="form-control" type="text" id="txtName"/><br>
+              <label class="form-label">Email</label>
+              <input class="form-control" type="email" id="txtEmail"/><br>
+              <label class="form-check-label">Active</label>
+              <input class="form-check-input" type="checkbox" id="chkActive"/><br>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="createUser()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
     <script>
-        let users = [
-            {
-                "id": 2,
-                "name": "Bob",
-                "email": "bob@gmail.com",
-                "active": true
-            },
-            {
-                "id": 3,
-                "name": "Carol",
-                "email": "carol@gmail.com",
-                "active": false
-            },
-            {
-                "id": 4,
-                "name": "Dan",
-                "email": "dan@gmail.com",
-                "active": false
-            },
-            {
-                "id": 5,
-                "name": "Eve",
-                "email": "eve@gmail.com",
-                "active": false
-            },
-            {
-                "id": 6,
-                "name": "User",
-                "email": "user@gmail.com",
-                "active": false
-            },
-            {
-                "name": "Alice",
-                "email": "alice@gmail.com",
-                "active": true,
-                "id": 7
-            },
-            {
-                "name": "Aidan",
-                "email": "aidan@gmail.com",
-                "active": true,
-                "id": 8
-            },
-            {
-                "name": "Alan",
-                "email": "alan@gmail.com",
-                "active": true,
-                "id": 9
-            },
-            {
-                "name": "Adrian",
-                "email": "adrian@gmail.com",
-                "active": true,
-                "id": 11
-            },
-            {
-                "name": "Barbara",
-                "email": "barbara@gmail.com",
-                "active": true,
-                "id": 12
+
+        let url = "http://localhost:3000/users";
+
+        function createUser() {
+
+            let name = document.getElementById("txtName").value;
+            let email = document.getElementById("txtEmail").value;
+            let active = document.getElementById("chkActive").checked;
+
+            /*
+            let newUser = {
+                user: user, 
+                email: email, 
+                active: active
+            };
+            */
+            // ES6 shorthand when key is being assigned to variable of
+            // the same name
+            let newUser = {
+                name, 
+                email, 
+                active
             }
-    ];
 
+            fetch(url, {
+                method: "POST", 
+                headers: {
+                    "Content-Type": "application/json"
+                }, 
+                body: JSON.stringify(newUser)
+            })
+            .then(response=>response.json())
+            .then(addedUser=>{
+                addUserToTable(addedUser);
+                userModal.hide();
+            });
+        }
 
-    </script>
+        let userModal = new bootstrap.Modal('#dlgUser');
 
-    <script>
+        function showUserDialog() {
+            userModal.show();
+        }
+        function onDelete(id) {
+            if (confirm(`delete ${id}`)) {
+                // make a delete query using fetch api
+                fetch(`${url}/${id}`, {
+                    method: "DELETE"
+                })
+                .then(()=>{
+                    document.getElementById(`tr_${id}`).remove();
+                });
+            }
+        }
 
-        let tbl = document.getElementById("tblUsers");
-        
-        let tbody = tbl.getElementsByTagName("tbody")[0];
+        function addUserToTable(user) {
+            let tbody = document.querySelector("#tblUsers tbody");
 
-        let newRow = tbody.insertRow();
+            let content = tbody.innerHTML;
+            content += `<tr id="tr_${ user.id }">
+                    <td>${ user.id }</td>
+                    <td>${ user.name }</td>
+                    <td>${ user.email }</td>
+                    <td>${ user.active }</td>
+                    <td>
+                        <button onclick="onDelete(${user.id})" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-title="Delete User"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-success btn-sm"  data-bs-toggle="tooltip" data-bs-title="Edit User"><i class="fa fa-user-pen"></i></button>
+                        <button class="btn btn-primary btn-sm"  data-bs-toggle="tooltip" data-bs-title="Save Changes"><i class="fa fa-save"></i></button>
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="tooltip"  data-bs-title="Undo Changes"><i class="fa fa-undo"></i></button>
+                    </td>
+                </tr>`;
+            tbody.innerHTML = content;
+        }
 
-        let newCell = newRow.insertCell();
+        function populateTable(users) {
 
-        let newText = document.createTextNode('new cell');
+            let tbody = document.querySelector("#tblUsers tbody");
+            let trs = users.forEach(user => addUserToTable(user));
+        }
 
-        newCell.appendChild(newText);
-
-        let trs = users.map(user => {
-            return `<tr><td>${user.name}</td></tr>`
-        });
-
-        console.log(trs);
+        fetch(url)
+            .then(response=>response.json()) // convert the response to json
+            .then(users => populateTable(users));//populate the table with the data
+                
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     </script>
 

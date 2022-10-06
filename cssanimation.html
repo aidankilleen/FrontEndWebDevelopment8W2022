@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        @keyframes rotatediv {
+            0% { transform:rotate(180deg); }
+            50% { transform:rotate(-180deg); }
+            100% { transform:rotate(180deg); }
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .animation {
+            display: flex;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            justify-content: center;
+            /*
+            animation-name: rotatediv;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;*/
+            animation: 5s linear infinite rotatediv;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="animation">
+        <H1>Animation</H1>
+    </div>
+</body>
+</html>

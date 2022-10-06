@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .box {
+            color: white;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        div {
+            background-color: red;
+        }
+
+        body div {
+            background-color: blue;
+        }
+
+        html body div {
+            background-color: red;
+        }
+
+        .element {
+            background-color: blue;
+        }
+
+        div.element {
+            background-color: red;
+        }
+
+        div.element:only-of-type {
+            background-color: blue;
+        }
+
+        #box1 {
+            background-color: red;
+        }
+
+        #box1.element {
+            background-color: blue;
+        }
+
+        div {
+            background-color: purple !important;
+        }
+
+        div {
+            box-shadow: inset 0 9001rem 0 green;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="box element" id="box1" style="background-color:red">
+
+
+        <h2>Box 1</h2>
+
+
+        !important[inline][id][class][element]
+
+    </div>
+</body>
+</html>

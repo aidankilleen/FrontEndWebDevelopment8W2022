@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: lightcoral;
+            transition-property: all ;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            font-size: 2em;
+        }
+
+        .container:hover .box {
+            transform: translateX(400px);
+        }
+        #box1 {
+            transition: all 1s ease;
+        }
+        #box2 {
+            transition: all 1s ease-in-out;
+        }
+        #box3 {
+            transition: all 1s ease-out;
+        }
+        #box4 {
+            transition: all 1s steps(10);
+        }
+        #box5 {
+            transition: all 1s step-end;
+        }
+        #box6 {
+            transition: all 1s step-start;
+        }
+        #box7 {
+            transition: all 1s cubic-bezier(0,-0.67, 1, 2.11);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box" id="box1">Box 1</div>
+        <div class="box" id="box2">Box 2</div>
+        <div class="box" id="box3">Box 3</div>
+        <div class="box" id="box4">Box 4</div>
+        <div class="box" id="box5">Box 5</div>
+        <div class="box" id="box6">Box 6</div>
+        <div class="box" id="box7">Box 7</div>
+    </div>
+</body>
+</html>

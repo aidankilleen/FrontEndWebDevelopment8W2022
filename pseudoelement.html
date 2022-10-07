@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .box {
+            width: 20%;
+            height: 20vh;
+            border: 1px solid black;
+        }
+        .box:hover {
+            background-color: lightcoral;
+        }
+        input:invalid {
+            background-color: red;
+        }
+/*
+        p::first-letter {
+            font-size:2em;
+        }
+*/
+/*
+        p::first-line {
+            background-color: lightgreen;
+        }
+*/
+        p::selection {
+            background-color: lightcoral;
+        }
+
+        .quotation::before {
+            content: "\"";
+            font-size: 2em;
+        }
+        .quotation::after {
+            content: "\"";
+            font-size: 2em;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <p class="quotation">Lorem ipsum dolorsdam hic nihil </p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus non quam ut reiciendis veritatis officiis placeat, corporis quisquam accusantium molestiae? Distinctio a officia sapiente vel laboriosam voluptas at repellendus soluta!</p>
+
+    <hr>
+
+    <input type="number" max="100" value="99">
+
+
+    <div class="box">
+        <h1>Box 1</h1>
+    </div>
+</body>
+</html>

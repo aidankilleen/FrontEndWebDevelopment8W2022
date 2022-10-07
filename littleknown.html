@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Details</h2>
+    <details>
+        <summary>Front end web development</summary>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate explicabo, aliquam deserunt recusandae hic expedita aut ipsum velit, blanditiis doloribus exercitationem perspiciatis nulla ratione earum quisquam, molestiae accusamus. Tempore, aliquid?</p>
+    </details>
+
+
+    <input list="counties">
+    <datalist id="counties">
+        <option value="Cork"></option>
+        <option value="Corfu"></option>
+        <option value="Corinth"></option>
+        <option value="Clare"></option>
+        <option value="Dublin"></option>
+        <option value="Limerick"></option>
+    </datalist>
+
+    <hr>
+
+    <pre>
+        var r = Math.random();
+        if (r < 0.3) {
+
+            
+
+        }
+    </pre>
+
+
+    <progress 
+        id="prg" 
+        max="100" 
+        value="50"
+       ></progress>
+
+    <meter id="mtr" low="20" high="80" max="100" optimum="50"></meter>
+
+    <button onclick="alert('clicked')">Show Alert</button>
+
+    <script>
+
+        let prg = document.getElementById("prg");
+        let mtr = document.getElementById("mtr");
+        let count = 0;
+
+        let id = setInterval(() => {
+
+            console.log(count);
+            mtr.value = count;
+            prg.value = count++;
+
+            if (count > 100) {
+
+                //stop the timer
+                clearInterval(id);
+
+            }
+
+        }, 100);
+
+
+    </script>
+
+
+</body>
+</html>

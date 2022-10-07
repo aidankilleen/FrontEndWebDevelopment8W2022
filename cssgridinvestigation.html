@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 90%;
+            height: 50vh;
+
+            display: grid;
+
+            grid-template-columns: 40% 20% 20% 20%;
+            grid-template-rows: 20% 20% 20% 20% 20%;
+
+            grid-gap: 5px;
+        }
+
+        .container div {
+            background-color: lightcoral;
+            border: 1px solid black;
+        }
+
+        #d1 {
+            grid-column-start:1;
+            grid-column-end:3;
+            grid-row-start:1;
+            grid-row-end:2;
+            background-color: lightblue;
+        }
+        #d3 {
+            grid-column-start: 2;
+            grid-column-end:3;
+            grid-row-start:2;
+            grid-row-end:4;
+            background-color: lightgreen;
+        }
+        #d6 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            background-color: lightseagreen;
+        }
+        #d8 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>CSS Grid</h1>
+
+    <div class="container">
+        <div id="d1">1</div>
+        <div id="d2">2</div>
+        <div id="d3">3</div>
+        <div id="d4">4</div>
+        <div id="d5">5</div>
+        <div id="d6">6</div>
+        <div id="d7">7</div>
+        <div id="d8">8</div>
+    </div>
+
+
+</body>
+</html>

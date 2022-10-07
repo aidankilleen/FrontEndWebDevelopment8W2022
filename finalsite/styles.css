@@ -1,0 +1,24 @@
+.container section {
+    scroll-margin-top: 4em;
+}
+
+.footer {
+    height: 10vh;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer div {
+    flex: 33% 1 1;
+    margin: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex-grow: 1;
+}
